@@ -1,0 +1,9 @@
+Package: pupilR
+Type: Package
+Title: Utility functions for processing and analyzing pupil size data
+Version: 0.1.0
+Author: Tim Graf[aut, cre]
+Maintainer: Tim Graf <tim@tim-graf.de>
+Description: More about what it does (maybe more than one line)
+License: GNU AFFERO GENERAL PUBLIC LICENSE v. 3.0
+LazyData: TRUE
