@@ -7,3 +7,4 @@ Maintainer: Tim Graf <tim@tim-graf.de>
 Description: More about what it does (maybe more than one line)
 License: GNU AFFERO GENERAL PUBLIC LICENSE v. 3.0
 LazyData: TRUE
+RoxygenNote: 5.0.1
