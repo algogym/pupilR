@@ -1,22 +1,20 @@
-###----------------------------------------------------------
-### get_pupil_avg
-###----------------------------------------------------------
-
-# function gets the mean of pupilsize samples around the peak pupil size
-# it is thought to be used as a function within a data.table call
-# Function arguments:
-## pupil_size: column containing the measured pupil size
-## avg_window: Two element vector containing window around the peak pupil size.
-## Default value: 48 samples before and 48 samples after peak pupil size
-## First element refers to samples before peak pupil size
-## Second Element refers to samples after peak pupil size
-## If the absolute values of both elements is identical, that the window is symmetrical
-## region: Two element vector containing the range of samples to use.
-## This keeps the function flexible, so that it can be used for baseline and recall
+#' Title Average a pupil size vector around a peak pupil size
+#'
+#' \code{get_pupil_avg} gets the mean of pupil size samples around the peak pupil size. Actually this function is used to create the measure for inferential statistic analysis
+#'
+#' @param pupil_size input: numeric vector of pupil sizes
+#' @param avg_window input: Two element vector of integers determining the number of samples before and after the peak pupil size, over which the average is calculated; Default value adds up to around 200ms before and after peak pupil size, when sampling with 250 Hz.
+#' @param region Two element vector containing the range of samples to use; keeps the function flexible, so that it can be used for baseline and recall measure.
 ## returns one numerical value
-
-
-get_pupil_avg <- function(pupil_size, avg_window=c(-48,48), region){
+#'
+#' @return numeric object: Average pupil size round peak pupil size.
+#' @export
+#'
+#' @examples
+#' x <- rnorm(100, 5, 3)
+#' x[50] <- 80
+#' get_pupil_avg(x, c(-5,5), 1:100)
+get_pupil_avg <- function(pupil_size, avg_window=c(-48L,48L), region){
     # restricts the pupil size vector to the chosen region
     pupil_size <- pupil_size[region[1]:region[2]]
     # peak pupil size is included in the avg_window as index 0, so the upper bound is reduced by 1
